@@ -18,7 +18,7 @@ function fetchAPIData(movie) {
         studio: studio
       }
       // console.log(response)
-      return response
+      resolve(response)
     })
       .catch((err) => {
         console.error(err)
