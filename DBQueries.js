@@ -1,7 +1,9 @@
 const Sequelize = require('sequelize')
-// const dbconnect = process.env.mode
-// const sequelize = new Sequelize(dbconnect)
-const sequelize = new Sequelize('postgres://anujshankar:t7@localhost:5432/moviesdb')
+// const dbname = process.env.mode === 'testdb' ? 'testdb' : 'moviesdb' 
+// const sequelize = new Sequelize('postgres://anujshankar:t7@localhost:5432/moviesdb)
+const sequelize = new Sequelize('postgres://anujshankar:t7@localhost:5432/testdb')
+
+// console.log(dbname)
 
 function insertDB(studio, movie, releaseDate) {
   return sequelize.query(`INSERT INTO movies (NAME,STUDIO,RELEASEDATE)
@@ -26,7 +28,6 @@ function getData(movie){
 }
 
 // getData('Movie 1').then( (data) => console.log(data[0]) )
-
 // updateActorList('Movie 1', 'Anuj').then((data) => console.log(data))
 // fetchActors('Movie 1').then((data) => console.log(data[0][0].actors))
 

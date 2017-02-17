@@ -13,7 +13,10 @@ app.get('/movie/:moviename', function (req, res) {
   const movie = req.params.moviename
   fetchAPIData(movie).then((data) => {
     console.log(data)
-    res.send(data)
+    res.status(200).send(data)
+  }).catch( (err) => {
+    console.log(err)
+    res.sendStatus(500)
   })
 })
 
